@@ -27,6 +27,6 @@ feltoltes_adatszerkezetbe()
 print("osszes eladas:", osszes_eladas())
 print("heti eladas (4.het):", heti_eladas(4))
 print("legsikeresebb het:", legsikeresebb_het())
-print("eladas mentes hnapok:", eladasmentes_napok())
+print("eladas mentes napok:", eladasmentes_napok())
 print("legkevesebb paratlan eladas nap:", legkevesebb_paratlan_eladas_nap())
 
