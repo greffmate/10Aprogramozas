@@ -5,37 +5,63 @@
 # 1) Olvasd be a fájlt megfelelő adatszerkezetbe!
 
 filename="input2.txt"
+
 file=open(filename, "r")
 file_lista=file.readlines()
 file.close()
 
-print(file_lista)
-
 name_list=[]
 pancake_list=[]
+for i in range(len(file_lista)):
+    _lista=file_lista[i].strip()
+    _lista_parts=_lista.split()
 
-for i in range (len(file_lista)):
-    lista=file_lista[i].strip()
-    lista_parts=lista.split()
-    name_list.append(lista_parts[0])
+    # így is lehet: _lista_parts=file_lista[i].strip().split()
+    name_list.append(_lista_parts[0])
 
-#így is lehet    lista_parts=file_lista[i].strip().split()
+    _l=[]
+    for j in range(1,len(_lista_parts)):
+        _l.append(int(_lista_parts[j]))
+    pancake_list.append(_l)
 
-    l=[]
-    for j in range(1, len(lista_parts)):
-        l.append(lista_parts[j])
-    pancake_list.append(l)
-    print(lista) #brakepoint
-
-#print(name_list)
-#print(pancake_list)
-#for i in range (len(pancake_list)):
-#print(len(pancake_list[i]))
-
+# print(name_list)
+# print(pancake_list)
+# for i in range(len(pancake_list)):
+#     print(len(pancake_list[i]))
 
 # 2) írd ki az adatokat szépen(!!) az alábbbi fejléccel:
 #       "Név\tJanuary\tFebruary\tMarch\tApril\tMay\tJune\tJuly\tAugust\tSeptember\tOctober\tNovember\tDecember"
-
 fejlec="Név\tJanuary\tFebruary\tMarch\tApril\tMay\tJune\tJuly\tAugust\tSeptember\tOctober\tNovember\tDecember"
 print(fejlec)
 
+for i in range(len(name_list)):
+    print(name_list[i], end="\t")
+    for x in range(len(pancake_list[i])):
+        print(pancake_list[i][x], end="\t")
+        if x == 11:
+            print("\n")
+
+
+# 3) Add meg, hogy márciusban ki sütötte a legtöbb palacsintát!
+marc = pancake_list[0][2]
+marc = name_list[0]
+for i in range(len(name_list)):
+    if pancake_list[i][2] >= marc:
+        marc = pancake_list[i][2]
+        marcind = name_list[i]
+print("Márciusban {marcind} sütötték a legtöbb palacsintát.")
+# 4) Add meg, hogy ki sütötte az évben a legkevesebb palacsintát!
+legkevesebb = pancake_list[0]
+for i in range(len(pancake_list)):
+    if sum(pancake_list[i]) <= legkevesebb:
+        legkevesebb = sum(pancake_list[i])
+        legind = name_list[i]
+print(f"Az évben {legind} sütötte a legkevesebb palacsintát.")
+# 5) Add meg, hogy az a személy, akinek B-vel kezdődik a neve, Májusban hány palacsintát sütött.
+for i in range(len(name_list)):
+    if name_list[i][0] == "B":
+        print(f"Májusban {pancake_list[i][4]} palacsintát sütött az az ember, akinek B-vel kezdődik a neve.")
+
+# 6) Volt-e olyan személy, akinek az évben változó teljesítménye volt?
+#       Pl: sütött valamennyit, majd a következő hónapban többet, a következőben az előzőnél kevesebbet stb
+#       írd ki a személy nevét!
