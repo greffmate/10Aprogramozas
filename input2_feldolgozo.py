@@ -1,4 +1,4 @@
-file = open("input3")
+file = open("input2")
 sorok = file.readlines()
 file.close()
 

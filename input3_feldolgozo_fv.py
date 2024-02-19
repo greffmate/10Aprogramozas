@@ -1,22 +1,7 @@
-def beolvas(filename):
-    file = open(filename)
-    sorok = file.readlines()
-    file.close()
-    return sorok
+import file_fvk as file
 
-
-def feldolgozo(sorok, elsosor=0, a_vegerol_ennyi_sor_nem_kell=0):
-    szamok=[]
-    for i in range(1,len(sorok)):
-    szamok.append(int(sorok[i].strip()))
-    return szamok
-
-
-szamok=feldolgoz(sorok, 1, 1)
-sorok=beolvas("input3")
-
+sorok=file.beolvas("input3")
 print(sorok)
-szamok=[]
 
-
+szamok=file.stringSzetszedoToIntList(sorok[0],elejerol_ennyi_nem_kell=1,elejerol_ennyi_nem_kell=1 )
 print(szamok)
