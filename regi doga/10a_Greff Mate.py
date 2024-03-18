@@ -15,6 +15,7 @@ feladat2() -> input2
 feladat3() -> input3
 feladat4() -> input3
 """
+
 "---beolvasas---"
 def beolvas(filename, elsosor, vege):
     file = open(filename)
