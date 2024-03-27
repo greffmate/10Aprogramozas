@@ -16,3 +16,11 @@ teszt=""
 for i in range(2,20):
     teszt+="C"
     fejlec(teszt)
+    "---4.feladat---"
+def feladat4(filename):
+    list = beolvas(filename)
+    maximum = list[0]
+    for i in range(1, len(list)):
+        if list[i] > maximum:
+            maximum = list[i]
+    print(maximum)
